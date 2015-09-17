@@ -7,6 +7,7 @@
 </head>
 
 <body>
+
   <div class="container">
 
     <header>
@@ -27,16 +28,39 @@
       </p>
       <div id="lower-nav">
         <span id="countdown">{{minutes}}:{{seconds}}    </span>
-        <span>|   Word Count: {{wordCount}}    </span>
-        <span>|   Wordsmith # of #</span></div>
+        <span id="word-count">|   Word Count: {{wordCount}}    </span>
+        <span id="user-tracker">|   Wordsmith # of #    </span>
+        <span id="story-archive" class="lightbox-trigger">|   <a href="#">Story Archive</a>     </span>
+      </div>
     </main>
 
   </div>
 
   <footer>Fork me on <a href="https://github.com/ebirving/campfire">Github</a>!</footer>
 
+  <div id="lightbox">
+    <div id="inner-wrapper">
+      <span class="lightbox-close">&times;</span>
+      <div id="lightbox-content">
+        <ul>
+          {{#each stories}}
+            {{>firstLine}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+
 </body>
 
 <template name="word">
   <span>{{text}}</span>
+</template>
+
+<template name="firstLine">
+  <li>
+    "{{#each storyText}}
+        {{text}}
+    {{/each}}"
+  </li>
 </template>
