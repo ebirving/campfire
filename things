@@ -1,0 +1,30 @@
+//On startup...
+
+Stories.insert({
+  createdAt: new Date ();
+})
+
+
+//Body helper
+var currentStory = findCurrentStory();
+
+//On keyup
+
+Stories.update(
+  {_id: currentStory._id},
+
+
+)
+
+Stories.findAndModify({
+  query: {},
+  sort: {createdat: -1},
+  update: { $push: { storyText: }}
+});
+
+
+
+
+findCurrentStory: function (){
+  return Stories.find({}).sort({createdAt: -1}).limit( 1 );
+}

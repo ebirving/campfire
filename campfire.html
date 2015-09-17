@@ -3,29 +3,38 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image" href="noun_67681.png">
   <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Cabin" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Lekton" rel="stylesheet" type="text/css">
 </head>
 
 <body>
   <div class="container">
+
     <header>
       <div class="rubber_stamp">
         <h1>Campfire</h1>
       </div>
       <form class="new-word">
-        <input type="text" name="word" placeholder="Type here to add a word to the story..." />
+        <input type="text" name="word" placeholder="Type here to add a word..." />
       </form>
     </header>
-    <p>
-      <!-- <button class="delete">&times;</button> -->
-      {{#each words}}
-        {{>word}}
-      {{/each}}
-    </p>
-    <div id="lower-nav"><span id="countdown">{{countdown}}    </span><span>|   Word Count: {{wordCount}}</span></div>
+
+    <main>
+      <p>
+        <!-- <button class="delete">&times;</button> -->
+        {{#each words}}
+          {{>word}}
+        {{/each}}
+      </p>
+      <div id="lower-nav">
+        <span id="countdown">{{minutes}}:{{seconds}}    </span>
+        <span>|   Word Count: {{wordCount}}    </span>
+        <span>|   Wordsmith # of #</span></div>
+    </main>
+
   </div>
-<footer>Fork me on <a href="https://github.com/ebirving/campfire">Github</a>!</footer>
+
+  <footer>Fork me on <a href="https://github.com/ebirving/campfire">Github</a>!</footer>
+
 </body>
 
 <template name="word">

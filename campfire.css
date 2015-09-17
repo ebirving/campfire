@@ -1,6 +1,6 @@
-/* CSS declarations go here */
 body {
   font-family: 'Lekton', Helvetica, Arial, sans-serif;
+  font-size: 14px;
   background-color: #222;
   color: #222;
 
@@ -12,21 +12,6 @@ body {
 
   padding: 0;
   margin: 0;
-
-  font-size: 14px;
-}
-
-.container {
-  max-width: 600px;
-  margin: 5% auto 2% auto;
-  min-height: 100%;
-  padding: 3% 5%;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px 0 #efefef;
-  background-image: url("linedpaper.png");
-  background-color: #efefef;
-  position: relative;
-
 }
 
 header {
@@ -41,8 +26,9 @@ footer {
   text-align: center;
 }
 
-#login-buttons {
-  display: block;
+form {
+  margin-top: 10px;
+  margin-bottom: -10px;
 }
 
 a {
@@ -57,41 +43,22 @@ h1 {
   padding: 0;
 }
 
-.rubber_stamp {
-  color: #335;
-  border: 7px solid #fc5b70;
-  margin-bottom: 1em;
-  float: right;
-  padding: 10px 7px;
-  border-radius: 10px;
-  opacity: 0.8;
-  -webkit-transform: rotate(10deg);
-  -o-transform: rotate(10deg);
-  -moz-transform: rotate(10deg);
-  -ms-transform: rotate(10deg);
-}
-.rubber_stamp::after {
-  position: absolute;
-  content: " ";
-  width: 100%;
-  height: auto;
-  min-height: 100%;
-  top: -10px;
-  left: -10px;
-  padding: 10px;
-  background: url(https://raw.github.com/domenicosolazzo/css3/master/img/noise.png) repeat;
-  opacity: .7;
-}
-
-form {
-  margin-top: 10px;
-  margin-bottom: -10px;
-}
-
 p {
   margin: 0;
   padding: 2% 5% 0 5%;
   line-height: 1.75;
+}
+
+.container {
+  max-width: 600px;
+  margin: 5% auto 2% auto;
+  min-height: 100%;
+  padding: 3% 5%;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 #efefef;
+  background-image: url("linedpaper.png");
+  background-color: #efefef;
+  position: relative;
 }
 
 .new-word input {
@@ -112,17 +79,39 @@ p {
   }
 }
 
-.delete {
+.rubber_stamp {
+  color: #335;
+  border: 7px solid #fc5b70;
+  margin-bottom: 1em;
   float: right;
-  font-weight: bold;
-  background: none;
-  font-size: 1em;
-  border: none;
-  position: relative;
-  /*visibility: hidden;*/
+  padding: 10px 7px;
+  border-radius: 10px;
+  opacity: 0.8;
+  transform: rotate(10deg);
 }
 
-#lower-nav{
+.rubber_stamp::after {
+  position: absolute;
+  content: " ";
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  top: -10px;
+  left: -10px;
+  padding: 10px;
+  background: url(https://raw.github.com/domenicosolazzo/css3/master/img/noise.png) repeat;
+  opacity: .7;
+}
+
+#countdown {
+  color: #fc5b70;
+}
+
+#login-buttons {
+  display: block;
+}
+
+#lower-nav {
   color: #335;
   opacity: .8;
   position: absolute;
@@ -130,18 +119,19 @@ p {
   right: 5%;
 }
 
-#countdown{
-  color: #fc5b70;
-}
-
 @media (max-width: 600px) {
 
-  .search {
-    width: 150px;
-    clear: both;
+  body {
+    font-size: 1.5em;
   }
 
-  .new-task input {
+  .new-word input {
     padding-bottom: 5px;
+    word-wrap: normal;
   }
+
+  #lower-nav {
+    text-align: center;
+  }
+  
 }
