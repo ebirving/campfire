@@ -1,4 +1,5 @@
 body {
+  box-sizing: border-box;
   font-family: 'Lekton', Helvetica, Arial, sans-serif;
   font-size: 14px;
   background-color: #222;
@@ -51,6 +52,11 @@ p {
 
 li {
   list-style: none;
+}
+
+.delete {
+  cursor: pointer;
+  color: #fc5b70;
 }
 
 .container {
@@ -142,7 +148,13 @@ li {
 }
 
 #login-buttons {
+  color: #efefef;
   display: block;
+  padding: .5em 0 0 .5em;
+}
+
+.accounts-dialog a {
+  font-family: 'Lekton', Helvetica, Arial, sans-serif;
 }
 
 #lower-nav {

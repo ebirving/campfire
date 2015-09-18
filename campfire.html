@@ -7,31 +7,37 @@
 </head>
 
 <body>
-
+  <div id="login-buttons">
+    {{>loginButtons}}
+  </div>
   <div class="container">
 
     <header>
       <div class="rubber_stamp">
         <h1>Campfire</h1>
       </div>
+      {{#if currentUser}}
       <form class="new-word">
         <input type="text" name="word" placeholder="Type here to add a word..." />
       </form>
+      {{/if}}
     </header>
 
     <main>
       <p>
-        <!-- <button class="delete">&times;</button> -->
         {{#each words}}
           {{>word}}
         {{/each}}
+        <span id="wordInProgress"></span>
       </p>
+      {{#if currentUser}}
       <div id="lower-nav">
-        <span id="countdown">{{minutes}}:{{seconds}}    </span>
+        {{>timer}}
         <span id="word-count">|   Word Count: {{wordCount}}    </span>
         <span id="user-tracker">|   Wordsmith # of #    </span>
         <span id="story-archive" class="lightbox-trigger">|   <a href="#">Story Archive</a>     </span>
       </div>
+      {{/if}}
     </main>
 
   </div>
@@ -44,7 +50,7 @@
       <div id="lightbox-content">
         <ul>
           {{#each stories}}
-            {{>firstLine}}
+            {{>story}}
           {{/each}}
         </ul>
       </div>
@@ -57,10 +63,16 @@
   <span>{{text}}</span>
 </template>
 
-<template name="firstLine">
-  <li>
-    "{{#each storyText}}
-        {{text}}
-    {{/each}}"
-  </li>
+<template name="story">
+  {{#if hasContent}}
+    <li>
+      "{{#each storyText}} {{this}} {{/each}}" - {{storyAuthors}}
+      <span class="delete">&times;</span>
+    </li>
+  {{/if}}
+</template>
+
+<template name="timer">
+  <span id="start-button"><a href="#">Start</a></span>
+  <span id="countdown">{{minutes}}:{{seconds}}    </span>
 </template>
