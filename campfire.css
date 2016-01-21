@@ -104,6 +104,7 @@ li {
   border-radius: 10px;
   opacity: 0.8;
   transform: rotate(10deg);
+  text-align: center;
 }
 
 .rubber_stamp::after {
@@ -167,7 +168,11 @@ li {
 
 @media (max-width: 600px) {
 
-  body {
+  .rubber_stamp, .rubber_stamp::after {
+    width: 50%;
+  }
+
+  .rubber_stamp h1{
     font-size: 1.5em;
   }
 
